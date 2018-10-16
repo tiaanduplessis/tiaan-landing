@@ -1,0 +1,119 @@
+@import 'variables';
+@import 'mixins';
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+   }
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Space Mono', monospace;
+    color: $primaryColor;
+    background: $secondaryColor;
+    background: linear-gradient(to right, $ternaryColor, $secondaryColor);
+    display: flex;
+}
+
+.main {
+    flex: 1;
+    margin: .4vw;
+    background-color: #fdfdfd;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+.header__title, .header__subtitle {
+    font-size: 1em;
+    @include textGlitch("header", 20, $primaryColor, #fff, $ternaryColor, $secondaryColor, 450, 115);
+}
+
+@media screen and (max-width: 40em) {
+    .header {
+        flex-direction: column;
+    }
+}
+
+.about {
+    max-width: 28em;
+    margin: auto;
+    padding: 1em;
+    line-height: 2;
+    text-align: justify;
+}
+
+.about__higlighted {
+    color: #fff;
+    background: $secondaryColor;
+    background: linear-gradient(to right, $ternaryColor, $secondaryColor);
+    padding: .1em .5em;
+    font-style: italic;
+}
+
+@media screen and (max-width: 40em) {
+    .about {
+        font-size: .8em;
+    }
+}
+
+.footer {
+    margin-bottom: 2em;
+}
+
+.social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.social__item {
+    width: 10em;
+    text-align: center;
+}
+
+
+.social__item--hover a::before,
+.social__item--hover a::after {
+	display: inline-block;
+	opacity: 0;
+	transition: transform 0.3s, opacity 0.2s;
+}
+
+.social__item--hover a::before {
+	margin-right: 10px;
+	content: '{';
+	transform: translateX(20px);
+}
+
+.social__item--hover a::after {
+	margin-left: 10px;
+	content: '}';
+	transform: translateX(-20px);
+}
+
+.social__item--hover a:hover::before,
+.social__item--hover a:hover::after,
+.social__item--hover a:focus::before,
+.social__item--hover a:focus::after {
+	opacity: 1;
+	transform: translateX(0px);
+}
+
+.social__link {
+    text-transform: uppercase;
+    color: $primaryColor;
+}
