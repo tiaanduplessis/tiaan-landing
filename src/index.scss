@@ -9,6 +9,7 @@
 
 html, body {
     height: 100%;
+
 }
 
 body {
@@ -17,6 +18,9 @@ body {
     background: $secondaryColor;
     background: linear-gradient(to right, $ternaryColor, $secondaryColor);
     display: flex;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .main {
